@@ -21,12 +21,12 @@ BEGIN {
     a[6] = invented
     for (i in a) {
         r = regexmix::make(a[i])
-	testing::assert_equal(typeof(r), "regexp", 1, sprintf("> make regexp from <%s> (%s)", a[i], typeof(a[i])));
+	testing::assert_equal(typeof(r), "regexp", 1, sprintf("make regexp from <%s> (%s)", a[i], typeof(a[i])));
     }
 
-    testing::assert_equal(typeof(regexmix::make(1, 2)), "unassigned", 1, "> wrong call, too many args: returns unassigned")
+    testing::assert_equal(typeof(regexmix::make(1, 2)), "unassigned", 1, "wrong call, too many args: returns unassigned")
     cmd = sprintf("%s -l regexmix 'BEGIN {regexmix::make()}'", ARGV[0])
-    testing::assert_false(awkpot::exec_command(cmd), 1, "> wrong call, no args: fatal")
+    testing::assert_false(awkpot::exec_command(cmd), 1, "wrong call, no args: fatal")
 
     # report
     testing::end_test_report()
